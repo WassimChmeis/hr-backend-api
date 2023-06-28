@@ -30,7 +30,7 @@ public class Employee {
     private String address;
 
     @Column(name = "department_id", nullable = false)
-    private Integer department;
+    private Integer departmentId;
 
 
 }
