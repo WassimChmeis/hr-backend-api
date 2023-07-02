@@ -23,7 +23,7 @@ public class EmployeeMapperImp implements EmployeeMapper{
     @Override
     public Employee empDTOToEmp(EmployeeDTO employeeDTO) {
         Employee employee = new Employee();
-        employee.setId(employeeDTO.getId());
+        //employee.setId(employeeDTO.getId());
         employee.setName(employeeDTO.getName());
         employee.setEmail(employeeDTO.getEmail());
         employee.setAddress(employeeDTO.getAddress());

@@ -10,6 +10,7 @@ import org.antlr.v4.runtime.misc.NotNull;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.config.ConfigDataResourceNotFoundException;
+import org.springframework.expression.ExpressionException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -96,11 +97,11 @@ public class EmployeeService {
 
 
 
-    public void updateEmployeeData(int id, Map<String, Object> emplyeeDTO) {
+    public void updateEmployeeData(int id, Map<String, Object> employeeDTO) {
         Employee employeeToUpdate = employeeRepository
-                .findById(id).orElseThrow();
+                .findById(id).orElseThrow(() -> new ExpressionException("ads"));
         Class Employee = Employee.class;
-        businessService.updateEntity(emplyeeDTO, employeeToUpdate, Employee);
+        businessService.updateEntity(employeeDTO, employeeToUpdate, Employee);
         employeeRepository.saveAndFlush(employeeToUpdate);
 
 

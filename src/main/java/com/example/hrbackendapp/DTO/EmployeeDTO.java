@@ -1,6 +1,8 @@
 package com.example.hrbackendapp.DTO;
 
 
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,7 +14,8 @@ import lombok.Setter;
 @NoArgsConstructor
 public class EmployeeDTO {
 
-    private int id;
+
+    private Integer id;
     private String name;
     private String email;
     private String address;
