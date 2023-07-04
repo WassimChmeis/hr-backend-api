@@ -1,6 +1,7 @@
 package com.example.hrbackendapp.controller;
 
 
+import com.example.hrbackendapp.DTO.DepartmentDto;
 import com.example.hrbackendapp.DTO.EmployeeDTO;
 import com.example.hrbackendapp.model.Department;
 import com.example.hrbackendapp.model.Employee;
@@ -48,7 +49,7 @@ public class EmployeeController {
 
 
     @PostMapping({"department/","department"})
-    public ResponseEntity<Department> defineDepartment(@RequestBody Department department){
+    public ResponseEntity<Department> defineDepartment(@RequestBody DepartmentDto department){
         return departmentService.createDepartment(department);
     }
 

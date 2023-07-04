@@ -46,6 +46,9 @@ public class LeaveService {
         return leaveRepository.findByEmployeeIdAndDateRange(id, startDate, endDate);
     }
 
+
+
+
     public Page<Leave> getLeavesByTypeAndEmployeeWithPagination(Integer leaveType, Integer employeeId, int page, int pageSize) {
         // Create a PageRequest for pagination
         PageRequest pageRequest = PageRequest.of(page, pageSize);

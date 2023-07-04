@@ -1,7 +1,9 @@
 package com.example.hrbackendapp.service;
 
+import com.example.hrbackendapp.DTO.DepartmentDto;
 import com.example.hrbackendapp.model.Department;
 import com.example.hrbackendapp.repository.DepartmentRepository;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,9 +15,14 @@ public class DepartmentService {
 
     @Autowired
     private DepartmentRepository departmentRepository;
+    @Autowired
+    private ModelMapper mapper;
 
 
-    public ResponseEntity<Department> createDepartment(Department department) {
+    public ResponseEntity<Department> createDepartment(DepartmentDto departmentDto) {
+
+        Department department = mapper.map(departmentDto,Department.class);
+
         try {
             if (department!=null){
                 Department savedDepartment = departmentRepository.save(department);
